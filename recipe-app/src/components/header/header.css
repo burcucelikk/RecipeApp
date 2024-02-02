@@ -1,0 +1,16 @@
+.header{
+    background-color:rgb(202, 153, 89);
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    padding: 20px;
+}
+.header nav ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.header nav ul li a{
+    color: #fff;
+    text-decoration: none;
+}

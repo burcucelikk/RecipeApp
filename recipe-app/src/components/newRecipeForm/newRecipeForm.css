@@ -1,0 +1,11 @@
+.new-recipe-form{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    width: 60%;
+    margin: 2rem auto;
+}
+.new-recipe-form input,
+.new-recipe-form textarea{
+    font-size: 1.25rem;
+}
