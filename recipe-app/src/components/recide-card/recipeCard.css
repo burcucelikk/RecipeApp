@@ -1,7 +1,7 @@
 .recipe-card{
     width: 300px;
     background-color: bisque;
-    padding: 20px;
+    padding: 0 0 20px 0;
     border: 1px solid rgb(197, 191, 191);
     box-shadow: 0 1px 10px 0;
     border-radius: 8px;
@@ -11,6 +11,13 @@
     text-align: center;
 }
 .recipe-card img{
+    min-height: 300px;
     width: 100%;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
+}
+.recipe-card h3{
+    margin: 8px 0;
+}
+.recipe-card p{
+    padding: 0 20px;
 }

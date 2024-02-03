@@ -1,17 +1,25 @@
 import React, { useState } from 'react'
 import './newRecipeForm.css'
 
-const NewRecipeForm = () => {
+const NewRecipeForm = ({addRecipe}) => {
 
   const [title,setTitle]= useState("")
   const [description,setDescription]= useState("")
   const [image,setImage]=useState("")
 
+  const newRecipe={
+    title:title,
+    description:description,
+    image:image
+  }
+
   const handleSubmit=(event)=>{
     //Kaydetme işleminden sonra sayfanın yeniden yklenmesini engelliyoruz.
     event.preventDefault()
     //Normalde datayı burada server'a submit ediyoruz.
-    console.log("Submiting new recipe",{title,description,image})
+    //console.log("Submiting new recipe",{title,description,image})
+
+    addRecipe(newRecipe)
     //Formun içeriğini temizliyoruz.
     setTitle("")
     setDescription("")

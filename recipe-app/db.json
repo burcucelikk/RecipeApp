@@ -1,10 +1,10 @@
 {
-    "recipes": [
+    "recipes" : [
     {
       "id": 1,
       "title": "Spaghetti Carbonara",
       "description": "A classic Italian pasta dish with a creamy egg sauce.",
-      "image": "https://www.sipandfeast.com/wp-content/uploads/2022/09/spaghetti-carbonara-recipe-snippet-300x300.jpg"
+      "image": "https://thegreekfoodie.com/wp-content/uploads/2023/11/Greek_Spaghetti_Meat_Sauce_Makaronia_me_kima_SQ.jpg"
     },
     {
       "id": 2,
@@ -60,6 +60,6 @@
       "description": "A creamy, seasonal soup made with pureed pumpkin and a blend of warm spices.",
       "image": "https://adventuresincooking.com/wp-content/uploads/2010/10/Pumpkin-Soup-by-Eva-Kosmas-Flores-300x300.jpg"
     }
-],
-    "todos": [{"id": 1},{"id": 2}]
+  ],
+    "todos" : [{"id":1}, {"id":2}]
 }
