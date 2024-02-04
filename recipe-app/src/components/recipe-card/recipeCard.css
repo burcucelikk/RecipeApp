@@ -21,3 +21,17 @@
 .recipe-card p{
     padding: 0 20px;
 }
+.button-container{
+    padding: 5px 50px 0 50px;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.button-container button{
+    background-color:#CA9959;
+    color: white;
+    border: none;
+    font-size: 16px;
+    width: 80px;
+    height: 30px;
+}

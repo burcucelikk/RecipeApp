@@ -1,11 +1,12 @@
-import React from 'react'
-import RecipeCard from '../recide-card/RecipeCard'
+import React, { useState } from 'react'
+import RecipeCard from '../recipe-card/RecipeCard'
 import './recipeList.css'
 
-const RecipeList = ({recipes}) => {
+const RecipeList = ({recipes, onEdit}) => {
+
   return (
     <div className='recipe-list'>
-        {recipes.map((recipe) => <RecipeCard key={recipe.id} {...recipe}/>)}
+        {recipes.map((recipe) => <RecipeCard key={recipe.id} {...recipe} onEdit={() => onEdit(recipe.id)}/>)}
     </div>
   )
 }
