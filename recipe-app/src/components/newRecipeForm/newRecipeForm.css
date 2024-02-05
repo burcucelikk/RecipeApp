@@ -32,12 +32,12 @@
     background-color: #CA9959;
     color: white;
     border: none;
-    font-size: 1.4rem;
-    height: 50px;
+    padding: 10px 16px;
+    font-size: 1.2rem;
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s ease;
-}
+  }
 
 .new-recipe-form button:hover {
     background-color: #976e3f;
@@ -54,4 +54,8 @@
 
 .new-recipe-form:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.new-recipe-form .buttons {
+    display: flex;
+    justify-content: space-between;
 }

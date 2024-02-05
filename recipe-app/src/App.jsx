@@ -18,48 +18,59 @@ function App() {
     .get("http://localhost:3000/recipes")
     .then(response=> setRecipes(response.data))
     .catch(error=>console.log("There was an error while fetching the recipes!",error))
-
-
   },[])
-
+  const addNewRecipe= async (newRecipe)=>{
+    const response= await axios.post("http://localhost:3000/recipes",newRecipe)
+    if(response.status===201){
+      setRecipes([...recipes,response.data])
+    }
+  }
+  const deleteRecipe= async (id) =>{
+    await axios.delete(`http://localhost:3000/recipes/${id}`)
+    .then(res=> setRecipes(recipes.filter(res=> res.id!==id)))
+    .catch(error=>console.log("There was an error while fetching the recipes!",error))
+  }
+  const [editingRecipe,setEditingRecipe]=useState(null)
+  const startEditing= (id)=>{
+    return setEditingRecipe(recipes.find(recipe => recipe.id===id))
+  }
+  const editRecipe= async (id,newEditRecipe) =>{
+    await axios.put(`http://localhost:3000/recipes/${id}`,newEditRecipe)
+    .then(res=> {
+      setRecipes(recipes.map((res)=>res.id==id ? newEditRecipe: res))
+    })
+    .catch(error=>console.log("There was an error while fetching the recipes!",error))
+  }
   const [showAddForm,setShowAddForm]=useState(false)
   const toggleAddForm=()=>{
     setShowAddForm(!showAddForm)
     setShowHomeForm(false)
+    setShowEditForm(false)
   }
   const [showHomeForm,setShowHomeForm]=useState(false)
   const toggleHomeForm=()=>{
     setShowHomeForm(!showHomeForm)
     setShowAddForm(false)
+    setShowEditForm(false)
   }
-  const addRecipe= (newRecipe)=>{
-    setRecipes([...recipes,newRecipe])
+  const [showEditForm, setShowEditForm] = useState(false)
+  const toggleEditForm=()=>{
+    setShowEditForm(!showEditForm)
+    setShowHomeForm(false)
+    setShowAddForm(false)
   }
-
-  const [showEditForm, setShowEditForm] = useState(false);
-  const [editingRecipeId, setEditingRecipeId] = useState(null);
-  
-  const openEditForm = (recipeId) => {
-    setShowEditForm(true);
-    setEditingRecipeId(recipeId);
-  };
-
-  const closeEditForm = () => {
-    setShowEditForm(false);
-    setEditingRecipeId(null);
-  };
 
   return (
     <>
       <Header toggleHomeForm={toggleHomeForm} toggleAddForm={toggleAddForm}/>
       {showAddForm ? (
-        <NewRecipeForm addRecipe={addRecipe}/>
+        <NewRecipeForm addNewRecipe={addNewRecipe} toggleHomeForm={toggleHomeForm}/>
       ) : showEditForm ? (
-        <EditRecipeForm recipeId={editingRecipeId} recipes={recipes} onCloseEditForm={closeEditForm}/>
+        <EditRecipeForm editingRecipe={editingRecipe} editRecipe={editRecipe} toggleHomeForm={toggleHomeForm}/>
       ) : (
         <>
           <Home />
-          <RecipeList recipes={recipes} onEdit={openEditForm} />
+          <RecipeList recipes={recipes} toggleEditForm={toggleEditForm} deleteRecipe={deleteRecipe} startEditing={startEditing}/>
         </>
       )}
     </>

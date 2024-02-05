@@ -32,8 +32,8 @@
     background-color: #CA9959;
     color: white;
     border: none;
-    font-size: 1.4rem;
-    height: 50px;
+    font-size: 1.2rem;
+    padding: 10px 16px;
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s ease;
@@ -54,4 +54,8 @@
 
 .edit-recipe-form:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.edit-recipe-form .buttons {
+    display: flex;
+    justify-content: space-between;
 }

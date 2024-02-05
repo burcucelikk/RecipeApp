@@ -3,20 +3,8 @@ import axios from 'axios'
 import './recipeCard.css'
 
 
-const RecipeCard = ({id,title,description,image,toggleEditForm}) => {
+const RecipeCard = ({id,title,description,image,toggleEditForm,deleteRecipe,startEditing}) => {
   
-  const deleteRecipe=  async ()=>{
-     await axios
-    .delete(`http://localhost:3000/recipes/${id}`)
-    .then(response=> response.data)
-    .catch(error=>console.log("There was an error while fetching the recipes!",error))
-  }
-  const editRecipe=  async ()=>{
-    await axios
-   .put(`http://localhost:3000/recipes/${id}`)
-   .then(response=> response.data)
-   .catch(error=>console.log("There was an error while fetching the recipes!",error))
- }
   
   return (
     <div className='recipe-card'>
@@ -24,8 +12,11 @@ const RecipeCard = ({id,title,description,image,toggleEditForm}) => {
         <h3>{title}</h3>
         <p>{description}</p>
         <div className='button-container'>
-          <button onClick={toggleEditForm}>Düzenle</button>
-          <button onClick={deleteRecipe}>Sil</button>
+          <button onClick={()=>{
+            toggleEditForm()
+            startEditing(id)
+          }}>Edit</button>
+          <button onClick={() => deleteRecipe(id)}>Delete</button>
         </div>
     </div>
   )
