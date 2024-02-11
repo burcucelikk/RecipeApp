@@ -32,7 +32,7 @@
     justify-content: space-between;
   }
   
-  .button-container button {
+  .button-container button,.button-container a {
     background-color: #CA9959;
     color: white;
     border: none;
@@ -44,8 +44,14 @@
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .button-container button:hover {
+  .button-container button:hover,.button-container a:hover {
     background-color: #976e3f;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
-  
+
+  .button-container a{
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

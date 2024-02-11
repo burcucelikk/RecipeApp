@@ -1,5 +1,31 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.light {
+    background-color: #fff;
+    color: #333;
+}
+
+.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark .recipe-card,
+.dark .header,
+.dark .new-recipe-form,
+.dark .edit-recipe-form {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark .header nav ul li a,
+.dark .header nav ul li button {
+    background-color: #333;
+    color: #fff;
+    box-shadow: none;
 }

@@ -10,7 +10,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     transition: box-shadow 0.3s ease;
-    height: 400px;
     justify-content: space-around;
 }
 
@@ -28,7 +27,7 @@
     border-color: #CA9959;
 }
 
-.edit-recipe-form button {
+.edit-recipe-form button ,.buttons a{
     background-color: #CA9959;
     color: white;
     border: none;
@@ -39,16 +38,16 @@
     transition: background-color 0.3s ease;
 }
 
-.edit-recipe-form button:hover {
+.edit-recipe-form button:hover,.buttons a:hover {
     background-color: #976e3f;
 }
 
-.edit-recipe-form button:disabled {
+.edit-recipe-form button:disabled,.buttons a:disabled{
     background-color: #ccc;
     cursor: not-allowed;
 }
 
-.edit-recipe-form button:disabled:hover {
+.edit-recipe-form button:disabled:hover,.buttons a:disabled:hover {
     background-color: #ccc;
 }
 
@@ -58,4 +57,7 @@
 .edit-recipe-form .buttons {
     display: flex;
     justify-content: space-between;
+}
+.buttons a{
+    font-size: 1.3rem;
 }

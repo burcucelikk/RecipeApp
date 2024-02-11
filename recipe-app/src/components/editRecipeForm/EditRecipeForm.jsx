@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './editRecipeForm.css'
+import { ApiContext } from '../../context/ApiContext'
+import { Link } from 'react-router-dom'
 
-const EditRecipeForm = ({editingRecipe,editRecipe,toggleHomeForm}) => {
+const EditRecipeForm = () => {
+  
+  const {editingRecipe,editRecipe}=useContext(ApiContext)
   const [title,setTitle]= useState(editingRecipe.title)
   const [description,setDescription]= useState(editingRecipe.description)
   const [image,setImage]=useState(editingRecipe.image)
@@ -18,9 +22,8 @@ const EditRecipeForm = ({editingRecipe,editRecipe,toggleHomeForm}) => {
     setTitle("")
     setDescription("")
     setImage("")
-    toggleHomeForm()
   }
-
+  console.log(editingRecipe.id)
   return (
     <div>
         <form onSubmit={handleSubmit} className='new-recipe-form'>
@@ -29,7 +32,7 @@ const EditRecipeForm = ({editingRecipe,editRecipe,toggleHomeForm}) => {
             <input value={image} onChange={(event)=>setImage(event.target.value)} type='text' placeholder='Image URL'/> 
             <div className='buttons'>
                 <button type='submit'>Edit Recipe</button>
-                <button onClick={toggleHomeForm}>Cancel</button>
+                <Link to="/">Cancel</Link>
             </div>
         </form>
     </div>

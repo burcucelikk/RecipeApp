@@ -11,7 +11,41 @@
     display: flex;
     gap: 20px;
 }
-.header nav ul li a{
+.header nav ul li a, .header nav ul li button{
     color: #fff;
     text-decoration: none;
+    background-color: rgb(202, 153, 89) ;
+    border: none;
+}
+.header nav ul li button{
+    font-size: 1rem;
+    cursor: pointer;
+}
+.slider-container{
+    width: 50px;
+    height: 25px;
+    background-color: lightgray;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.9s ease;
+}
+
+.slider-button{
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    transition: left 0.9s ease;
+}
+
+.slider-container.dark {
+    background-color: darkgray;
+}
+
+.slider-container.dark .slider-button{
+    left: calc(100% - 22.5px)
 }

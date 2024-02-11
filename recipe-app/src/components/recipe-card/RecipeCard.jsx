@@ -1,10 +1,12 @@
-import React from 'react'
-import axios from 'axios'
+import React, { useContext } from 'react'
 import './recipeCard.css'
+import { ApiContext } from '../../context/ApiContext'
+import { Link } from 'react-router-dom'
 
 
-const RecipeCard = ({id,title,description,image,toggleEditForm,deleteRecipe,startEditing}) => {
+const RecipeCard = ({id,title,description,image}) => {
   
+  const{isLoading,deleteRecipe,startEditing}=useContext(ApiContext)
   
   return (
     <div className='recipe-card'>
@@ -12,11 +14,8 @@ const RecipeCard = ({id,title,description,image,toggleEditForm,deleteRecipe,star
         <h3>{title}</h3>
         <p>{description}</p>
         <div className='button-container'>
-          <button onClick={()=>{
-            toggleEditForm()
-            startEditing(id)
-          }}>Edit</button>
-          <button onClick={() => deleteRecipe(id)}>Delete</button>
+          <Link to="/editRecipeForm" onClick={()=> startEditing(id)}>Edit</Link>
+          <button onClick={() => deleteRecipe(id)}>{isLoading.delete.includes(id) ? "Deleting..." : "Delete"}</button>
         </div>
     </div>
   )

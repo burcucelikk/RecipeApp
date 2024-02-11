@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import RecipeCard from '../recipe-card/RecipeCard'
 import './recipeList.css'
+import { ApiContext } from '../../context/ApiContext'
 
-const RecipeList = ({recipes, onEdit,deleteRecipe ,toggleEditForm, startEditing}) => {
-
+const RecipeList = () => {
+  const {recipes, isLoading} =useContext(ApiContext)
   return (
     <div className='recipe-list'>
-        {recipes.map((recipe) => <RecipeCard key={recipe.id} {...recipe} onEdit={() => onEdit(recipe.id)} deleteRecipe={deleteRecipe} toggleEditForm={toggleEditForm} startEditing={startEditing}/>)}
+      {isLoading.read && <p>Loading...</p>}
+      {recipes.map((recipe) => <RecipeCard key={recipe.id} {...recipe}/>)}
     </div>
   )
 }
